@@ -21,12 +21,20 @@ function countDown () {
         let minutes = Math.floor((seconds % 3600) / 60);
         seconds = seconds % 60;
 
-        timerView.innerHTML =
-        formatTime(hours) +
-        ":" +
-        formatTime(minutes) +
-        ":" +
-        formatTime(seconds);
+        if (hours === 0) {
+            timerView.innerHTML =
+                formatTime(minutes) + ":" + formatTime(seconds);
+            } else {
+            timerView.innerHTML = formatTime(hours) + ":" + formatTime(minutes) +
+                ":" + formatTime(seconds);
+            }
+
+        // timerView.innerHTML =
+        // formatTime(hours) +
+        // ":" +
+        // formatTime(minutes) +
+        // ":" +
+        // formatTime(seconds);
 
         if (seconds > 0 || minutes > 0 || hours > 0) {
           timerInput.value = seconds + minutes * 60 + hours * 3600 - 1;
