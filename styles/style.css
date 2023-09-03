@@ -1,0 +1,156 @@
+@font-face {
+    font-family: 'Reem Kufi Ink', sans-serif;
+    src: url(../assets/fonts/ReemKufiInk-Regular.woff2) format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Reem Kufi Ink', sans-serif;
+}
+
+body {
+    background-color: #c3c0bb;
+    background-image: url(../assets/img/bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #494c4e;
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.title {
+    font-size: 40px;
+    margin: 10px 0 100px 0;
+    text-align: center;
+    animation: swipe-up 1s ease-in;
+}
+
+input {
+    outline: none;
+    color: inherit;
+}
+
+.timer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 70px;
+    padding: 20px;
+
+    width: 380px;
+    height: 120px;
+    border-radius: 10px;
+
+    font-size: 60px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    box-shadow: 0px 0px 10px rgba(19, 8, 10, 0.8), 0px 0px 20px rgba(19, 8, 10, 0.7), 0px 0px 30px rgba(19, 8, 10, 0.5);
+    background-color: rgba(243, 240, 235, .5);
+}
+
+.timer:focus {
+    border: none;
+}
+
+.timer:hover {
+    cursor: pointer;
+}
+
+.timer-view {
+    display: none;
+}
+
+.error {
+    font-size: 24px;
+    color: #f18294;
+    margin: -20px auto 30px;
+    display: none;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 70%;
+    gap: 30px;
+}
+
+.buttons button {
+    width: 120px;
+    font-size: 22px;
+    font-weight: 700;
+    color: #494c4e;
+    padding: 16px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    background-color: var(--clr);
+    box-shadow: 0px 0px 10px rgba(19, 8, 10, 1);
+    transition: transform .4s ease-in-out;
+}
+
+.buttons button:hover {
+    transform: scale(1.1);
+}
+
+@keyframes swipe-up {
+    0%{
+        opacity: 0;
+        transform: translateY(50%);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        background-image: url(../assets/img/bg_mob.jpg);
+    }
+    .container {
+        margin-block: 40px;
+    }
+    .buttons {
+        flex-wrap: wrap;
+    }
+    .buttons button {
+        width: 30%;
+        margin: 20px;
+    }
+}
+
+@media (max-width: 426px) {
+    .timer {
+        width: 90%;
+        font-size: 50px;
+        margin-bottom: 50px;
+    }
+    .title {
+        width: 80%;
+        font-size: 30px;
+        margin-bottom: 30px;
+    }
+    .buttons {
+        width: 80%;
+        justify-content: space-evenly;
+    }
+    .buttons button {
+        font-size: 18px;
+        padding-inline: 0;
+    }
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Pomodoro Timer</title>
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+<body>
+    <div class="container">
+        
+        <h1 class="title">Let's Start Countdown...</h1>
+
+        <input class="timer timer-input" type="number" value="0"></input>
+
+        <div class="timer timer-view"></div>
+
+        <div class="error">
+            <p>error: numbers only</p>
+        </div>
+        
+        <div class="buttons">
+            <button class="startBtn" style="--clr:#749c9490">Start</button>
+            <button class="pauseBtn" style="--clr:#d55b6b80">Pause</button>
+            <button class="resetBtn" style="--clr:#A7B1AF95">Reset</button>
+        </div>
+    </div>
+
+    <script src="./js/index.js"></script>
+</body>
+</html>
