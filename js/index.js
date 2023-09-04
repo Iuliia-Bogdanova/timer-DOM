@@ -14,19 +14,24 @@ timerInput.addEventListener('focus', () => {
 });
 
 // Function to countdown
-function countDown () {
+const countDown = function() {
     let seconds = parseInt(timerInput.value);
     if (!isNaN(seconds)) {
         let hours = Math.floor(seconds / 3600);
         let minutes = Math.floor((seconds % 3600) / 60);
         seconds = seconds % 60;
 
-        timerView.innerHTML =
-        formatTime(hours) +
-        ":" +
-        formatTime(minutes) +
-        ":" +
-        formatTime(seconds);
+        if (hours === 0) {
+            timerView.innerHTML =
+                formatTime(minutes) + ":" + formatTime(seconds);
+            } else {
+            timerView.innerHTML =
+                formatTime(hours) +
+                ":" +
+                formatTime(minutes) +
+                ":" +
+                formatTime(seconds);
+            }
 
         if (seconds > 0 || minutes > 0 || hours > 0) {
           timerInput.value = seconds + minutes * 60 + hours * 3600 - 1;
