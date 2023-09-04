@@ -32,6 +32,9 @@ function countDown () {
           timerInput.value = seconds + minutes * 60 + hours * 3600 - 1;
         } else {
             clearInterval(interval);
+
+            timerView.dispatchEvent(new CustomEvent("endTimer"));
+            console.log("Timer has expired");
         }
     }
 }
@@ -58,14 +61,39 @@ startBtn.addEventListener('click', () => {
 
     timerView.style.display = "flex";
     timerInput.style.display = "none";
+
+    const event = new CustomEvent("startTimer");
+    timerView.addEventListener("startTimer", handleStartTimer);
+    timerView.dispatchEvent(event);
+    
+    function handleStartTimer() {
+        console.log("Timer started counting down");
+    }
 });
+
 
 // Add pauseBtn
 pauseBtn.addEventListener('click', () => {
     clearInterval(interval);
+
+    const event = new CustomEvent("pauseTimer");
+    timerView.addEventListener("pauseTimer", handlePauseTimer);
+    timerView.dispatchEvent(event);
+
+    function handlePauseTimer() {
+        console.log("Timer paused");
+    }
 });
 
 // Add resetBtn
 resetBtn.addEventListener('click', () => {
     location.reload();
+
+    const event = new CustomEvent("resetTimer");
+    timerView.addEventListener("resetTimer", handleResetTimer);
+    timerView.dispatchEvent(event);
+
+    function handleResetTimer() {
+        console.log("Timer reset");
+    }
 });
